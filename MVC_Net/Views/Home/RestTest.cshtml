@@ -1,0 +1,11 @@
+﻿@model RestModel
+
+<p>RESTFULL SERVICES TEST</p>
+
+<p>@Model.HondaSegments.success</p>
+<p>Segments:</p>
+
+@foreach(var segment in Model.HondaSegments.segments)
+{
+    <p>Name: @segment.segmentName Id: @segment.segmentId</p>
+}
