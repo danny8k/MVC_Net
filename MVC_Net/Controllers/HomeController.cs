@@ -52,7 +52,7 @@ namespace MVC_Net.Controllers
 			model.HondaSegments = hondaSegments;
             
 
-			return View("~/Views/Home/RestTest.cshtml", model);
+            return View(Constants.Views.RestTest, model);
 		}
     }
 }

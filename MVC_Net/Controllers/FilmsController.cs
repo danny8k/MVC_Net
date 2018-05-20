@@ -16,7 +16,7 @@ namespace MVC_Net.Controllers
         {
             SakilaContext context = HttpContext.RequestServices.GetService(typeof(MVC_Net.Models.SakilaContext)) as SakilaContext;
 
-            return View("~/Views/Home/Films.cshtml", context.GetAllFilms());
+            return View(Constants.Views.Films, context.GetAllFilms());
         }
     }
 }

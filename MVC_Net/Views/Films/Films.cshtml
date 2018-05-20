@@ -12,7 +12,7 @@
         <th>Length</th>
         <th>Rating</th>
     </tr>
-    @foreach (var item in Model)
+    @foreach (var item in Model.Take(10))
     {
         <tr>
             <td>
