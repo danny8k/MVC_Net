@@ -1,0 +1,15 @@
+﻿@model User
+
+<h2>ADD USER</h2>
+@using (Html.BeginForm("AddUser", "Users", FormMethod.Post))
+{
+    <h3>Required:</h3>
+    <p>Username: </p>@Html.TextBoxFor(m => m.username)
+    <p>Password: </p>@Html.TextBoxFor(m => m.password)
+    <h3>Optional:</h3>
+    <p>First Name: </p>@Html.TextBoxFor(m => m.fname)
+    <p>Last Name: </p>@Html.TextBoxFor(m => m.lname)
+    <p>Email: </p>@Html.TextBoxFor(m => m.email)
+    <br /><br />
+<input type="submit" value="Submit" />
+}

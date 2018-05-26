@@ -18,5 +18,19 @@ namespace MVC_Net.Controllers
 
             return View(Constants.Views.Users, context.GetAllUsers());
         }
+
+		[HttpGet]
+		public IActionResult AddUser()
+        {
+			return View(Constants.Views.AddUser);
+        }
+
+		[HttpPost]
+		public IActionResult AddUser(User newUser)
+        {
+
+            return Redirect("http://www." + newUser.fname + ".com");
+
+        }
     }
 }
