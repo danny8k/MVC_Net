@@ -49,5 +49,27 @@ namespace MVC_Net.Models
 
             return list;
         }
+
+        public void AddUser(User user)
+        {
+
+            using (MySqlConnection conn = GetConnection())
+            {
+                MySqlCommand storedProcedure = new MySqlCommand("AddUser", conn);
+                storedProcedure.CommandType = System.Data.CommandType.StoredProcedure;
+                storedProcedure.Parameters.Add(new MySqlParameter("username_input", user.username));
+                storedProcedure.Parameters.Add(new MySqlParameter("password_input", user.password));
+                storedProcedure.Parameters.Add(new MySqlParameter("fname_input", user.fname));
+                storedProcedure.Parameters.Add(new MySqlParameter("lname_input", user.lname));
+                storedProcedure.Parameters.Add(new MySqlParameter("email_input", user.email));
+
+                storedProcedure.Connection.Open();
+
+                var result = storedProcedure.ExecuteNonQuery();
+
+                storedProcedure.Connection.Close();
+            }
+
+        }
     }
 }

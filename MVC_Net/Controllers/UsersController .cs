@@ -28,6 +28,9 @@ namespace MVC_Net.Controllers
 		[HttpPost]
 		public IActionResult AddUser(User newUser)
         {
+            Db4freeContext context = HttpContext.RequestServices.GetService(typeof(MVC_Net.Models.Db4freeContext)) as Db4freeContext;
+
+            context.AddUser(newUser);
 
             return Redirect("http://www." + newUser.fname + ".com");
 
