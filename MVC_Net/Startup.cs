@@ -25,6 +25,9 @@ namespace MVC_Net
             services.AddMvc();
 
             services.Add(new ServiceDescriptor(typeof(SakilaContext), new SakilaContext(Configuration.GetConnectionString("DefaultConnection"))));
+
+            services.Add(new ServiceDescriptor(typeof(Db4freeContext), new Db4freeContext(Configuration.GetConnectionString("db4free"))));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
