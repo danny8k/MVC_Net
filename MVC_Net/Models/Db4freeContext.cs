@@ -71,5 +71,24 @@ namespace MVC_Net.Models
             }
 
         }
+
+        public void DeleteUser(int userId)
+        {
+
+            using (MySqlConnection conn = GetConnection())
+            {
+                MySqlCommand storedProcedure = new MySqlCommand("DeleteUser", conn);
+                storedProcedure.CommandType = System.Data.CommandType.StoredProcedure;
+                storedProcedure.Parameters.Add(new MySqlParameter("username_id", userId));
+
+
+                storedProcedure.Connection.Open();
+
+                var result = storedProcedure.ExecuteNonQuery();
+
+                storedProcedure.Connection.Close();
+            }
+
+        }
     }
 }

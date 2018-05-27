@@ -35,5 +35,14 @@ namespace MVC_Net.Controllers
             return Redirect("http://www." + newUser.fname + ".com");
 
         }
+
+        public IActionResult DeleteUser(int userId)
+        {
+            Db4freeContext context = HttpContext.RequestServices.GetService(typeof(MVC_Net.Models.Db4freeContext)) as Db4freeContext;
+
+            context.DeleteUser(userId);
+
+            return Redirect("http://www.google.com/" + userId.ToString());
+        }
     }
 }
